@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "713872908173",
+    "project_id": "iot-ptit-fc1d1",
+    "storage_bucket": "https://iot-ptit-fc1d1-default-rtdb.firebaseio.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713872908173:android:d9f58b0004708688b3a7c4",
+        "android_client_info": {
+          "package_name": "com.example.healthsystem"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvdqxm-TqN1lvdNGTchy5fb6GzHF_x7a0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

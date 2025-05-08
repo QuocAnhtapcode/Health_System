@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp">
+
+    <ImageView
+        android:id="@+id/imgDevice"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:scaleType="centerInside" />
+
+    <TextView
+        android:id="@+id/tvDeviceName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Device Name"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@id/imgDevice"
+        app:layout_constraintTop_toTopOf="@id/imgDevice"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="12dp" />
+
+    <TextView
+        android:id="@+id/tvDeviceValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Value"
+        android:textColor="#666"
+        app:layout_constraintStart_toStartOf="@id/tvDeviceName"
+        app:layout_constraintTop_toBottomOf="@id/tvDeviceName"
+        app:layout_constraintEnd_toEndOf="@id/tvDeviceName"
+        android:textSize="24sp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
