@@ -44,8 +44,7 @@ class MainActivity : AppCompatActivity(), VoiceCallback {
                 textToSpeech.language = Locale.US
             }
         }
-        deviceViewmodel.fetchACTemperature()
-        // Khởi tạo VoiceHelper với callback là chính Activity này
+
         VoiceHelper.init(this, this)
 
         binding.btnVoice.setOnClickListener {

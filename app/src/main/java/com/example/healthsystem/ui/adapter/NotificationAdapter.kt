@@ -2,6 +2,7 @@ package com.example.healthsystem.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthsystem.databinding.ItemNotificationBinding
 import com.example.healthsystem.model.NotificationItem
@@ -26,9 +27,11 @@ class NotificationAdapter(private val list: List<NotificationItem>) :
         with(holder.binding) {
             tvTitle.text = item.title
             tvContent.text = item.content
-            colorDot.background.setTint(item.color)
+            val color = ContextCompat.getColor(root.context, item.colorResId)
+            colorDot.background.setTint(color)
         }
     }
+
 
     override fun getItemCount(): Int = list.size
 }

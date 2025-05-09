@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.NavOptions
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.healthsystem.R
 import com.example.healthsystem.databinding.FragmentHomeBinding
@@ -41,8 +39,6 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        sensorViewModel.fetchSensorData()
-
         sensorViewModel.sensorData.observe(viewLifecycleOwner, Observer { data ->
             Log.d("HomeFragment", "Dữ liệu nhận được: $data")
             binding.valueHeart.text = "${data.heartRate} BPM"
@@ -51,6 +47,7 @@ class HomeFragment : Fragment() {
             binding.valueHumidity.text = String.format("%.2f %%", data.humidity)
 
         })
+
         deviceViewmodel.acTemperature.observe(viewLifecycleOwner, Observer{data ->
             val devices = listOf(
                 Device(R.drawable.ic_ac, "Air Conditioner", "$data °C"),
