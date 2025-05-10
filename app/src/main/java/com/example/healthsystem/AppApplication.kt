@@ -3,6 +3,8 @@ package com.example.healthsystem
 import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.content.Context
+import android.os.Build
 
 class AppApplication : Application() {
     override fun onCreate() {
@@ -11,15 +13,17 @@ class AppApplication : Application() {
     }
 
     private fun createNotificationChannel() {
-        val channel = NotificationChannel(
-            "voice_channel", // Channel ID khớp với service
-            "Voice Recognition",
-            NotificationManager.IMPORTANCE_LOW
-        ).apply {
-            description = "Kênh dành cho dịch vụ nhận diện giọng nói"
-        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val name = "Health Alerts"
+            val descriptionText = "Thông báo theo dõi chỉ số sức khỏe"
+            val importance = NotificationManager.IMPORTANCE_HIGH
+            val channel = NotificationChannel("health_channel", name, importance).apply {
+                description = descriptionText
+            }
 
-        val manager = getSystemService(NotificationManager::class.java)
-        manager.createNotificationChannel(channel)
+            val notificationManager: NotificationManager =
+                getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
     }
 }
